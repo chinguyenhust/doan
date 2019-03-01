@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Home from './src/component/home/Home'
 import Map from './src/component/home/Map'
-import { StackNavigator,createStackNavigator, createAppContainer } from 'react-navigation'; 
+import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 const MainStack = createStackNavigator(
   {
     Home: {
@@ -10,19 +10,14 @@ const MainStack = createStackNavigator(
     Map: {
       screen: Map,
     }
-  },
-  {
-    initialRouteName: 'Home',
+  
+  },{
+    headerMode: 'none',
     navigationOptions: {
-      headerStyle: {
-        backgroundColor: '#f4511e',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    },
-  }
+      headerVisible: false,
+    }
+   }
+  
 );
 
- export default createAppContainer(MainStack)
+export default createAppContainer(MainStack)

@@ -17,7 +17,6 @@
 {
   [GMSServices provideAPIKey:@"AIzaSyDXwSjZX3_R1Pib3q0-XMXz76XgWhiMSS4"];
   NSURL *jsCodeLocation;
-  NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
