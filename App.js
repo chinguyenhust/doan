@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Home from './src/component/home/Home'
 import Map from './src/component/home/Map'
+import DatePicker from './src/component/home/DatePicker'
+import ListCity from './src/component/home/ListCity'
 import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 const MainStack = createStackNavigator(
   {
@@ -9,6 +11,12 @@ const MainStack = createStackNavigator(
     },
     Map: {
       screen: Map,
+    },
+    DatePicker: {
+      screen: DatePicker,
+    },
+    ListCity: {
+      screen: ListCity,
     }
   
   },{
