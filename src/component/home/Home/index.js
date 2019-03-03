@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, FlatList , TextInput} from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, FlatList, TextInput } from 'react-native';
 import styles from './HomeStyle';
 import Schedule from '../Schedule';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import Discover from '../Discover';
-// import SearchableFlatlist from "searchable-flatlist";
 
-const data = [
-  { id: 1, name: "Francesco Raoux" },
-  { id: 2, name: "Tasha Bonanno" },
-  { id: 3, name: "Merle Braunstein" },
-  { id: 4, name: "Aleda Bouzan" },
-  { id: 5, name: "Issiah Elnaugh" }
-];
 
 export default class Home extends Component {
   constructor(props) {
@@ -22,7 +14,6 @@ export default class Home extends Component {
       isSchedule: true,
       isDiscover: false,
       isSearch: false,
-      searchTerm: ""
     }
   }
 
@@ -52,7 +43,9 @@ export default class Home extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    let { sContainer, sSearchBar, sTextItem } = style1s;
+    const city = this.props.navigation.getParam("city", "");
+    const startDate = this.props.navigation.getParam("startDate", null);
+    const untilDate = this.props.navigation.getParam("untilDate", null);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -68,28 +61,19 @@ export default class Home extends Component {
             <Icon name="ios-search" style={styles.iconSeacrh} size={28} onPress={() => navigate('ListCity')} />
           </TouchableOpacity>
         </View>
-        {(this.state.isSchedule) && <View style={{ flex: 5 }}><Schedule navigate={navigate} /></View>}
-        {(this.state.isDiscover) && <View style={{ flex: 3 }}><Discover navigate={navigate} /></View>}
+        {(this.state.isSchedule) &&
+          <View style={{ flex: 5 }}>
+            <Schedule navigate={navigate} city={city} startDate={startDate} untilDate={untilDate}/>
+          </View>}
+        {(this.state.isDiscover) &&
+          <View style={{ flex: 3 }}>
+            <Discover navigate={navigate} city={city} />
+          </View>}
         <View style={{ flex: 7, backgroundColor: "#555555" }}>
           <Button
             title="Go to Jane's profile"
             onPress={() => navigate('DatePicker')}
           />
-          {/* <View style={sContainer}>
-            <TextInput
-              placeholder={"Search"}
-              style={sSearchBar}
-              onChangeText={searchTerm => this.setState({ searchTerm })}
-            />
-            <SearchableFlatlist
-              searchProperty={"name"}
-              searchTerm={this.state.searchTerm}
-              data={data}
-              containerStyle={{ flex: 1 }}
-              renderItem={({ item }) => <Text style={sTextItem}>{item.name}</Text>}
-              keyExtractor={item => item.id}
-            />
-          </View> */}
 
         </View>
       </View>
