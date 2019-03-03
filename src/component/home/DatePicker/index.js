@@ -168,8 +168,15 @@ export default class RangeDatepicker extends Component {
   }
 
   handleConfirmDate() {
+    var startDate = moment(this.state.startDate).format("MMM DD YYYY");
+    var untilDate = moment(this.state.untilDate).format("MMM DD YYYY")
     this.props.onConfirm && this.props.onConfirm(this.state.startDate, this.state.untilDate);
-    this.props.navigation.navigate('Home')
+    if (this.state.startDate && this.state.untilDate) {
+      this.props.navigation.navigate('Home', {
+        startDate: startDate,
+        untilDate: untilDate
+      });
+    }
   }
 
   handleRenderRow(month) {
@@ -202,10 +209,18 @@ export default class RangeDatepicker extends Component {
   render() {
     const monthStack = this.ds.cloneWithRows(this.getMonthStack());
     const { navigate } = this.props.navigation;
+    var startDate = moment(this.state.startDate).format("MMM DD YYYY");
+    var untilDate = moment(this.state.untilDate).format("MMM DD YYYY");
+
     return (
       <View style={{ backgroundColor: '#fff', zIndex: 1000, alignSelf: 'center' }}>
         <TouchableOpacity style={{ height: 30, marginTop: 60, flexDirection: "row" }}>
-          <Icon name="ios-arrow-round-back" style={{ marginLeft: 20 }} size={34} onPress={() => navigate('Home')} />
+          <Icon name="ios-arrow-round-back"
+            style={{ marginLeft: 20 }} size={34}
+            onPress={() => navigate('Home', {
+              startDate: startDate,
+              untilDate: untilDate
+            })} />
           <Text style={{ fontSize: 20, marginLeft: 20 }}>Chọn ngày</Text>
         </TouchableOpacity>
         {/* {

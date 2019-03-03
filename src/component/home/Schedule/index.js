@@ -15,24 +15,37 @@ export default class Schedule extends Component {
 
   render() {
     const { navigate } = {...this.props};
+    const { city } = {...this.props};
+    const { startDate } = {...this.props};
+    const { untilDate } = {...this.props};
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Lên lịch trình cho chuyến đi</Text>
         <TouchableOpacity style={styles.place} onPress={() => navigate('ListCity')}>
           <Text style={{ color: "#000" }}>Điểm đến</Text>
-          <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn địa điểm đến, ví dụ: Hà Nội</Text>
+          { (city === "") ?
+            <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn địa điểm đến, ví dụ: Hà Nội</Text> :
+            <Text style={{color: "#000", paddingTop: 5, fontSize: 16}}>{city}</Text>
+          }
+          
         </TouchableOpacity>
         <View style={styles.dateTime}>
           <TouchableOpacity style={styles.date} onPress={() => navigate('DatePicker')}>
             <Text style={{ color: "#000" }}>Ngày đi</Text>
-            <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày đi</Text>
+            { (startDate === null || startDate==="Invalid date") ?
+            <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày đến</Text> :
+            <Text style={{color: "#000", paddingTop: 5, fontSize: 16}}>{startDate}</Text>
+          }
           </TouchableOpacity>
           <View style={styles.line}>
 
           </View>
           <TouchableOpacity style={styles.time} onPress={() => navigate('DatePicker')}>
             <Text style={{ color: "#000" }}>Ngày về</Text>
-            <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày về</Text>
+            { (untilDate === null || untilDate==="Invalid date") ?
+            <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày về</Text> :
+            <Text style={{color: "#000", paddingTop: 5, fontSize: 16}}>{untilDate}</Text>
+          }
           </TouchableOpacity>
 
         </View>
