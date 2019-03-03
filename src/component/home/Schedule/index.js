@@ -1,31 +1,45 @@
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import styles from "./ScheduleStyle";
 
 
-export default class Schedule extends Component{
-    constructor(props) {
-        super(props);
-        this.state={
-          
-        }
-      }
+export default class Schedule extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dateStart: null,
+      dateEnd: null,
+    }
+  }
+
   render() {
+    const { navigate } = {...this.props};
     return (
       <View style={styles.container}>
-            <Text style={styles.title}>Lên lịch trình cho chuyến đi</Text>
-            <View style={styles.place}>
-              <Text style={{color:"#000"}}>Điểm đến</Text>
-              <Text style={{color:"#A9A9A9", paddingTop: 5, fontSize:18}}>Chọn địa điểm đên, ví dụ: Hà Nội</Text>
-            </View>
-            <View style={styles.place}>
-              <Text>Điểm đến</Text>
-              <Text>Chọn địa điểm đên, ví dụ: Hà Nội</Text>
-            </View>
-            <View style={styles.buttonCreat}>
-              <Text style={{color:"#fff", fontSize:18}}>Tạo ngay</Text>
-            </View>
+        <Text style={styles.title}>Lên lịch trình cho chuyến đi</Text>
+        <TouchableOpacity style={styles.place} onPress={() => navigate('ListCity')}>
+          <Text style={{ color: "#000" }}>Điểm đến</Text>
+          <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn địa điểm đến, ví dụ: Hà Nội</Text>
+        </TouchableOpacity>
+        <View style={styles.dateTime}>
+          <TouchableOpacity style={styles.date} onPress={() => navigate('DatePicker')}>
+            <Text style={{ color: "#000" }}>Ngày đi</Text>
+            <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày đi</Text>
+          </TouchableOpacity>
+          <View style={styles.line}>
+
+          </View>
+          <TouchableOpacity style={styles.time} onPress={() => navigate('DatePicker')}>
+            <Text style={{ color: "#000" }}>Ngày về</Text>
+            <Text style={{ color: "#A9A9A9", paddingTop: 5, fontSize: 16 }}>Chọn ngày về</Text>
+          </TouchableOpacity>
+
+        </View>
+        <View style={styles.buttonCreat}>
+          <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
+        </View>
+
       </View>
     );
   }

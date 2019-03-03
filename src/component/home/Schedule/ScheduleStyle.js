@@ -7,10 +7,11 @@ const styles = StyleSheet.create({
         paddingRight: 20,
         paddingTop: 10,
         flexDirection: 'column',
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        paddingBottom: 20,
     },
     title: {
-        fontSize: 24,
+        fontSize: 22,
         height: 30,
         alignSelf: "stretch",
     },
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.3, 
+        flexDirection: "row"
     },
     buttonCreat: {
         marginTop: 20,
@@ -47,6 +49,19 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.3, 
         alignItems: 'center',  
+    },
+    date:{
+        width:"49%",
+        
+    },
+    time:{
+        marginLeft:10,
+        
+    },
+    line:{
+        width:"1%",
+        height:40,
+        backgroundColor:"#a9a9a9"
     }
 
 

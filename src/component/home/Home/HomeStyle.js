@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        bottom: 0,
-        justifyContent: 'flex-end',
+        // bottom: 0,
+        // justifyContent: 'flex-end',
         top: 60,
         flexDirection: 'column',
         flex:1,
@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff"
     },
     schedule: {
-        flex: 1,
+        flex: 2,
         flexDirection: 'column',
     },
     discover: {
-        flex: 1,
+        flex: 2,
         flexDirection: 'column',
         paddingLeft: 10,  
     },
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     textHeader: {
-        fontSize: 17,
+        fontSize: 15,
         paddingLeft:5
     },
     line:{

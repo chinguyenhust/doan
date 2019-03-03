@@ -7,10 +7,11 @@ const styles = StyleSheet.create({
         paddingRight: 20,
         paddingTop: 10,
         flexDirection: 'column',
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        paddingBottom:20,
     },
     title: {
-        fontSize: 24,
+        fontSize: 22,
         height: 30,
         alignSelf: "stretch",
     },
