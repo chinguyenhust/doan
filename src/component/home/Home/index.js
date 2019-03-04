@@ -72,7 +72,7 @@ export default class Home extends Component {
         <View style={{ flex: 7, backgroundColor: "#555555" }}>
           <Button
             title="Go to Jane's profile"
-            onPress={() => navigate('DatePicker')}
+            onPress={() => navigate('Map')}
           />
 
         </View>

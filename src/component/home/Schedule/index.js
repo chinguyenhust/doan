@@ -49,9 +49,9 @@ export default class Schedule extends Component {
           </TouchableOpacity>
 
         </View>
-        <View style={styles.buttonCreat}>
+        <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('CreatScheduleScreen')}>
           <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
-        </View>
+        </TouchableOpacity>
 
       </View>
     );
