@@ -4,19 +4,58 @@ import styles from "./CreatScheduleScreenStyle";
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconLocation from 'react-native-vector-icons/Entypo';
 import MyLocation from 'react-native-vector-icons/MaterialIcons';
+import RadioGroup from 'react-native-radio-buttons-group';
+
+import { Data } from "../../../api/Data";
+
+let vehicles = Data.ref('/vehicles');
+
 
 export default class CreatScheduleScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+       data: [
+            {
+                label: 'Default value is same as label',
+            },
+            {
+                label: 'Value is different',
+                value: "I'm not same as label",
+            },
+            {
+                label: 'Color',
+                color: 'green',
+            },
+            {
+                disabled: true,
+                label: 'Disabled',
+            },
+            {
+                label: 'Size',
+                size: 32,
+            },
+        ],
     }
   }
 
+  componentWillMount() {
+    vehicles.on('value', (snapshot) => {
+      let data = snapshot.val();
+      let items = Object.values(data);
+      this.setState({ data: items });
+    });
+    console.log("1111  ", this.state.data);
+  }
 
+  onPress = (data) => {
+    this.setState({ data });
+  }
 
   render() {
     const { navigate } = this.props.navigation;
+    let selectedButton = this.state.data.find(e => e.selected == true);
+        selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
 
     return (
       <View style={styles.container}>
@@ -105,10 +144,15 @@ export default class CreatScheduleScreen extends Component {
               </Text>
             </View>
           </View>
+
+          <Text style={styles.valueText}>
+                    Value = {selectedButton}
+                </Text>
+                <RadioGroup radioButtons={this.state.data} onPress={this.onPress} />
         </View>
 
         <TouchableOpacity style={styles.buttonNext}>
-          <Text style = {{color: "#fff", fontSize: 18}}>Tiếp tục</Text>
+          <Text style={{ color: "#fff", fontSize: 18 }}>Tiếp tục</Text>
         </TouchableOpacity>
 
       </View>
