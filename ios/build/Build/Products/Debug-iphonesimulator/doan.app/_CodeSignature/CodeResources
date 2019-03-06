@@ -10,7 +10,7 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		dtHMJSmLdigHTFCPoBCiCGwtjSg=
+		LmezDRS42HKvpLnWmki4JUHBDa4=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -743,6 +743,10 @@
 		<data>
 		Kj6ixJMHtndv37xT7AFZAQBgKic=
 		</data>
+		<key>GoogleService-Info.plist</key>
+		<data>
+		1VUAt8tS6ibpjRJFVcss5BHepDI=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		UKSrC3wghEzryzHhq/1r+SCUnDI=
@@ -785,7 +789,7 @@
 		</data>
 		<key>PlugIns/doanTests.xctest/doanTests</key>
 		<data>
-		8UQJLyEvvDflvmbtjqvpPlX/1Oo=
+		c9dXImw/CncTEO0hc/kjJVjyMNc=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -794,6 +798,34 @@
 		<key>Zocial.ttf</key>
 		<data>
 		C9pZx7zT05J94EfgkYdaRCi/0as=
+		</data>
+		<key>gRPCCertificates-Firestore.bundle/Info.plist</key>
+		<data>
+		h1HRYsBy1SYiSoEaCU1UnHKCapE=
+		</data>
+		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeDirectory</key>
+		<data>
+		eMGXW8V0gk+Rx6VvBzmgd8r9xtU=
+		</data>
+		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeRequirements</key>
+		<data>
+		OnX22wWFKRSOFN1+obRynMCeyXM=
+		</data>
+		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeRequirements-1</key>
+		<data>
+		b1EnsRYzm8mft0XeWGj+yrSDKsk=
+		</data>
+		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeResources</key>
+		<data>
+		FFeSqAa90HfWKYm3YZq9k76VK2Q=
+		</data>
+		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeSignature</key>
+		<data>
+		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+		</data>
+		<key>gRPCCertificates-Firestore.bundle/roots.pem</key>
+		<data>
+		xq5vdh9iqFfxDhAvNbdrZ3FCwnY=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -813,11 +845,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dtHMJSmLdigHTFCPoBCiCGwtjSg=
+			LmezDRS42HKvpLnWmki4JUHBDa4=
 			</data>
 			<key>hash2</key>
 			<data>
-			u5G60xIMIWvdq5l2ISIXQ9JXm/iAcNySHRP/UzzDXxw=
+			wUOL6euPG6PC/SYBlhBKdL3fIJeDfghOpgXKW5bXIN4=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -2278,6 +2310,17 @@
 			DXQ4sOleVe+NnnezsCMWzD636T2Fz10D/+kZS6n5w8M=
 			</data>
 		</dict>
+		<key>GoogleService-Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1VUAt8tS6ibpjRJFVcss5BHepDI=
+			</data>
+			<key>hash2</key>
+			<data>
+			RxkPMH8oJubGDeVRN/opbk5Bsv6GyC9rpD1ffI8aulI=
+			</data>
+		</dict>
 		<key>Ionicons.ttf</key>
 		<dict>
 			<key>hash</key>
@@ -2370,11 +2413,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8UQJLyEvvDflvmbtjqvpPlX/1Oo=
+			c9dXImw/CncTEO0hc/kjJVjyMNc=
 			</data>
 			<key>hash2</key>
 			<data>
-			zASpXn2/VIG+kBvKlO32VJ9RtLfCRTWeP4CD4oUYnY0=
+			ikaTwQDaWiv30MK8QswVobpxoORg/cyWWLrmn1IaU0Q=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>
@@ -2397,6 +2440,83 @@
 			<key>hash2</key>
 			<data>
 			17EKHr4YMOWi8I9JA7moDiwZEsDdL3O5P88r+DIhZgI=
+			</data>
+		</dict>
+		<key>gRPCCertificates-Firestore.bundle/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			h1HRYsBy1SYiSoEaCU1UnHKCapE=
+			</data>
+			<key>hash2</key>
+			<data>
+			YmBGxFUWiIB5gH5rWDVnE1CVKw+6DCHgCn6kBCpxbB0=
+			</data>
+		</dict>
+		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeDirectory</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eMGXW8V0gk+Rx6VvBzmgd8r9xtU=
+			</data>
+			<key>hash2</key>
+			<data>
+			j7MXQFWzEJ1ceeww6DE5J6z2EVcWsdWIhIXZgy5AmF0=
+			</data>
+		</dict>
+		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeRequirements</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OnX22wWFKRSOFN1+obRynMCeyXM=
+			</data>
+			<key>hash2</key>
+			<data>
+			mHkgkE6rZQ51eIwFSqCwUk5qgL/HGqMt+NI3phdD+YY=
+			</data>
+		</dict>
+		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeRequirements-1</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			b1EnsRYzm8mft0XeWGj+yrSDKsk=
+			</data>
+			<key>hash2</key>
+			<data>
+			y4YcdZGObGbxMpWHTpUJvjfll/nXLDBLTRvp12PGwCE=
+			</data>
+		</dict>
+		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FFeSqAa90HfWKYm3YZq9k76VK2Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			n/ELlw1HcXXpmYpaeGa5J1ppqkqVn030ZqVxdNOfuvg=
+			</data>
+		</dict>
+		<key>gRPCCertificates-Firestore.bundle/_CodeSignature/CodeSignature</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+			</data>
+			<key>hash2</key>
+			<data>
+			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+			</data>
+		</dict>
+		<key>gRPCCertificates-Firestore.bundle/roots.pem</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xq5vdh9iqFfxDhAvNbdrZ3FCwnY=
+			</data>
+			<key>hash2</key>
+			<data>
+			u1Ld4B/0KXyrlDgzSI0csPX2ZYtKXu7h7d15+tlySZ4=
 			</data>
 		</dict>
 	</dict>

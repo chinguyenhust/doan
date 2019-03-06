@@ -4,6 +4,7 @@ import Map from './src/component/home/Map';
 import DatePicker from './src/component/home/DatePicker';
 import ListCity from './src/component/home/ListCity';
 import CreatScheduleScreen from './src/component/home/CreatScheduleScreen';
+import Plan from './src/component/plan/Plan';
 import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 const MainStack = createStackNavigator(
   {
@@ -21,6 +22,9 @@ const MainStack = createStackNavigator(
     },
     CreatScheduleScreen: {
       screen: CreatScheduleScreen,
+    },
+    Plan: {
+      screen: Plan,
     }
   
   },{
