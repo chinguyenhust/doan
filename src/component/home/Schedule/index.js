@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import styles from "./ScheduleStyle";
+import { Data } from "../../../api/Data";
 
+let vehicles = Data.ref('/vehicles');
 
 export default class Schedule extends Component {
   constructor(props) {
@@ -10,7 +12,25 @@ export default class Schedule extends Component {
     this.state = {
       dateStart: null,
       dateEnd: null,
+      data: []
     }
+  }
+
+
+  componentDidMount() {
+    vehicles.on('value', (snapshot) => {
+      let data = snapshot.val();
+      let items = Object.values(data);
+      const arr = [];
+      items.forEach(function(element) {
+        arr.push({
+          label: element.name,
+          value: element.id
+        });
+      });
+      console.log("arrrrr  ", arr)
+      this.setState({ data: arr });
+    });
   }
 
   render() {
@@ -18,6 +38,7 @@ export default class Schedule extends Component {
     const { city } = {...this.props};
     const { startDate } = {...this.props};
     const { untilDate } = {...this.props};
+    console.log("111111111  ", this.state.data)
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Lên lịch trình cho chuyến đi</Text>
@@ -49,7 +70,7 @@ export default class Schedule extends Component {
           </TouchableOpacity>
 
         </View>
-        <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('CreatScheduleScreen')}>
+        <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('CreatScheduleScreen', {'data': this.state.data})}>
           <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
         </TouchableOpacity>
 

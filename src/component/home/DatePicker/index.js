@@ -168,8 +168,8 @@ export default class RangeDatepicker extends Component {
   }
 
   handleConfirmDate() {
-    var startDate = moment(this.state.startDate).format("MMM DD YYYY");
-    var untilDate = moment(this.state.untilDate).format("MMM DD YYYY")
+    var startDate = moment(this.state.startDate).format("DD-MM-YYYY");
+    var untilDate = moment(this.state.untilDate).format("DD-MM-YYYY")
     this.props.onConfirm && this.props.onConfirm(this.state.startDate, this.state.untilDate);
     if (this.state.startDate && this.state.untilDate) {
       this.props.navigation.navigate('Home', {
@@ -209,8 +209,8 @@ export default class RangeDatepicker extends Component {
   render() {
     const monthStack = this.ds.cloneWithRows(this.getMonthStack());
     const { navigate } = this.props.navigation;
-    var startDate = moment(this.state.startDate).format("MMM DD YYYY");
-    var untilDate = moment(this.state.untilDate).format("MMM DD YYYY");
+    var startDate = moment(this.state.startDate).format("DD-MM-YYYY");
+    var untilDate = moment(this.state.untilDate).format("DD-MM-YYYY");
 
     return (
       <View style={{ backgroundColor: '#fff', zIndex: 1000, alignSelf: 'center' }}>
@@ -239,7 +239,7 @@ export default class RangeDatepicker extends Component {
         <View style={{ flexDirection: 'row', justifyContent: "space-between", paddingHorizontal: 20, paddingBottom: 5, alignItems: 'center' }}>
           <View style={{ flex: 1 }}>
             <Text style={{ fontSize: 34, color: '#666' }}>
-              {this.state.startDate ? moment(this.state.startDate).format("MMM DD YYYY") : this.props.placeHolderStart}
+              {this.state.startDate ? moment(this.state.startDate).format("DD-MM-YYYY") : this.props.placeHolderStart}
             </Text>
           </View>
 
@@ -251,7 +251,7 @@ export default class RangeDatepicker extends Component {
 
           <View style={{ flex: 1 }}>
             <Text style={{ fontSize: 34, color: '#666', textAlign: 'right' }}>
-              {this.state.untilDate ? moment(this.state.untilDate).format("MMM DD YYYY") : this.props.placeHolderUntil}
+              {this.state.untilDate ? moment(this.state.untilDate).format("DD-MM-YYYY") : this.props.placeHolderUntil}
             </Text>
           </View>
         </View>
