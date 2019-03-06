@@ -64,6 +64,22 @@ const styles = StyleSheet.create({
         marginLeft:20,
         marginRight: 20,
         bottom: 40,
+    },
+    vehicle: {
+        alignItems: "flex-start",
+        marginLeft: "15%"
+    },
+    itemVehicle: {
+        alignSelf: "stretch",
+        height: 40,
+        flexDirection: 'row',
+    },
+    lableVehicle: {
+        width: "85%",
+        flexDirection: "column",
+        alignSelf: "center",
+        height: 40,
+        paddingTop:15
     }
 
     

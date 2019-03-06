@@ -54,7 +54,7 @@ export default class ListCity extends Component {
       <View style={styles.container}>
         <View style={{ flexDirection: "column" }}>
           <TouchableOpacity style={{ height: 30, marginTop: 40, flexDirection: "row" }}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => navigate('Home')} />
+            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => {this.props.navigation.goBack()}} />
             <TextInput style={{ fontSize: 20, width: "70%" }} placeholder="Bạn muốn đi đâu?"
               onChangeText={searchTerm => this.setState({ searchTerm })}
             ></TextInput>

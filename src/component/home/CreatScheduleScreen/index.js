@@ -15,53 +15,64 @@ export default class CreatScheduleScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       data: [
-            {
-                label: 'Default value is same as label',
-            },
-            {
-                label: 'Value is different',
-                value: "I'm not same as label",
-            },
-            {
-                label: 'Color',
-                color: 'green',
-            },
-            {
-                disabled: true,
-                label: 'Disabled',
-            },
-            {
-                label: 'Size',
-                size: 32,
-            },
-        ],
+      //  data: [
+      //       {
+      //           label: 'Default value is same as label',
+      //       },
+      //       // {
+      //       //     label: 'Value is different',
+      //       //     value: "I'm not same as label",
+      //       // },
+      //       // {
+      //       //     label: 'Color',
+      //       //     color: 'green',
+      //       // },
+      //       // {
+      //       //     disabled: true,
+      //       //     label: 'Disabled',
+      //       // },
+      //       // {
+      //       //     label: 'Size',
+      //       //     size: 32,
+      //       // },
+      //   ],
+      data: this.props.navigation.getParam('data', [{ value: 1, label: "Ô tô" }])
     }
+    console.log("2222222  ", this.state.data)
   }
 
-  componentWillMount() {
-    vehicles.on('value', (snapshot) => {
-      let data = snapshot.val();
-      let items = Object.values(data);
-      this.setState({ data: items });
-    });
-    console.log("1111  ", this.state.data);
-  }
+  // componentWillMount() {
+  //   vehicles.on('value', (snapshot) => {
+  //     let data = snapshot.val();
+  //     let items = Object.values(data);
+  //     const arr = [];
+  //     items.forEach(function(element) {
+  //       arr.push({
+  //         label: element.name,
+  //         value: element.id
+  //       });
+  //     });
+  //     console.log("arrrrr  ", arr)
+  //     this.setState({ data: arr });
+  //   });
+
+  // }
 
   onPress = (data) => {
     this.setState({ data });
   }
 
   render() {
+    console.log("dataaa  ", this.state.data);
     const { navigate } = this.props.navigation;
     let selectedButton = this.state.data.find(e => e.selected == true);
-        selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
+    selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
 
     return (
       <View style={styles.container}>
         <View style={{ flexDirection: "column" }}>
           <TouchableOpacity style={{ height: 30, marginTop: 40, flexDirection: "row" }}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%", paddingLeft: 10 }} onPress={() => navigate('Home')} />
+            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%", paddingLeft: 10 }} onPress={() => { this.props.navigation.goBack() }} />
             <Text style={{ fontSize: 24 }}> Tạo lịch trình</Text>
           </TouchableOpacity>
           <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View>
@@ -131,27 +142,22 @@ export default class CreatScheduleScreen extends Component {
             </View>
           </View>
 
-          <View style={styles.item}>
+          <View style={styles.itemVehicle}>
             <View style={styles.icon}>
               <Icon name="ios-car" size={26} />
             </View>
-            <View style={styles.location}>
+            <View style={styles.lableVehicle}>
               <Text style={styles.lable}>
                 Phương tiện đi lại
               </Text>
-              <Text style={styles.name}>
-                Đi bộ cho chất
-              </Text>
             </View>
           </View>
-
-          <Text style={styles.valueText}>
-                    Value = {selectedButton}
-                </Text>
-                <RadioGroup radioButtons={this.state.data} onPress={this.onPress} />
+          <View style={styles.vehicle}>
+            <RadioGroup radioButtons={this.state.data} onPress={this.onPress} />
+          </View>
         </View>
 
-        <TouchableOpacity style={styles.buttonNext}>
+        <TouchableOpacity style={styles.buttonNext} onPress={()=> navigate("Plan")}>
           <Text style={{ color: "#fff", fontSize: 18 }}>Tiếp tục</Text>
         </TouchableOpacity>
 

@@ -21,15 +21,24 @@ export default class Schedule extends Component {
     vehicles.on('value', (snapshot) => {
       let data = snapshot.val();
       let items = Object.values(data);
-      this.setState({ data: items });
+      const arr = [];
+      items.forEach(function(element) {
+        arr.push({
+          label: element.name,
+          value: element.id
+        });
+      });
+      console.log("arrrrr  ", arr)
+      this.setState({ data: arr });
     });
-  } 
+  }
 
   render() {
     const { navigate } = {...this.props};
     const { city } = {...this.props};
     const { startDate } = {...this.props};
     const { untilDate } = {...this.props};
+    console.log("111111111  ", this.state.data)
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Lên lịch trình cho chuyến đi</Text>
@@ -61,7 +70,7 @@ export default class Schedule extends Component {
           </TouchableOpacity>
 
         </View>
-        <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('CreatScheduleScreen', {data: this.state.data})}>
+        <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('CreatScheduleScreen', {'data': this.state.data})}>
           <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
         </TouchableOpacity>
 
