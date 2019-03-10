@@ -5,11 +5,14 @@ import DatePicker from './src/component/home/DatePicker';
 import ListCity from './src/component/home/ListCity';
 import CreatScheduleScreen from './src/component/home/CreatScheduleScreen';
 import Plan from './src/component/plan/Plan';
+
+
+import MyGroup from './src/component/group/MyGroup';
 import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 const MainStack = createStackNavigator(
   {
     Home: {
-      screen: Home,
+      screen: MyGroup,
     },
     Map: {
       screen: Map,
