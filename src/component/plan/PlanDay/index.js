@@ -1,19 +1,28 @@
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button} from 'react-native';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 
-export default class PlanDay extends Component {
-    
-      render() {
-        
-        return (
-            <View style={[styles.scene, { backgroundColor: '#673ab7' }]} />
-        );
-      }
+export default class Demo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      
+    }
+  }
+  render() {
+    const {day} = {...this.props}
+
+    return (
+      <View style={[styles.scene, { backgroundColor: '#ff4081' }]} >
+      <Text>Ngày {day}</Text>
+      
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    scene: {
-      flex: 1,
-    },
-  });
+  scene: {
+    flex: 1,
+  },
+});
 

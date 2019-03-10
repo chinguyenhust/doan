@@ -10,7 +10,11 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
+<<<<<<< HEAD
 		nQQzmRcziYa4ERaQR2ezpLraVK8=
+=======
+		OetLCE5bTw7ZNBK//x1cGLTbAMY=
+>>>>>>> develop
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -789,7 +793,11 @@
 		</data>
 		<key>PlugIns/doanTests.xctest/doanTests</key>
 		<data>
+<<<<<<< HEAD
 		9N4BHxS1hbq31BFIvVRf9LXpCLM=
+=======
+		nZNn1goB/rmOnfWKHBUfw5AkJr4=
+>>>>>>> develop
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -845,11 +853,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			nQQzmRcziYa4ERaQR2ezpLraVK8=
 			</data>
 			<key>hash2</key>
 			<data>
 			gMZh+x5y+9rzXOZ43+s57h3XfCMz6rK1PREW+TFqoJs=
+=======
+			OetLCE5bTw7ZNBK//x1cGLTbAMY=
+			</data>
+			<key>hash2</key>
+			<data>
+			39V9Jr6rNWcXsunPCwH5WKkYV51gb2oqoFEzeFKB+mE=
+>>>>>>> develop
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -2413,11 +2429,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			9N4BHxS1hbq31BFIvVRf9LXpCLM=
 			</data>
 			<key>hash2</key>
 			<data>
 			x0ELDw2OgF8Ilo0/wzdB9qUcFVf7tYYa9KzyTQLWjl0=
+=======
+			nZNn1goB/rmOnfWKHBUfw5AkJr4=
+			</data>
+			<key>hash2</key>
+			<data>
+			UCcIDJ+7QWv2zOL4gRskCACjPEHvabAk+Td6Wscud6c=
+>>>>>>> develop
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>

@@ -41,11 +41,25 @@ export default class Home extends Component {
     })
   }
 
+  paseDay = (str) => {
+    var mdy = str.split('-');
+    return new Date(mdy[2], mdy[1] - 1, mdy[0]);
+  }
+  dayDiff = (untilDate, startDate) => {
+    return (untilDate - startDate) / (1000 * 60 * 60 * 24) + 1;
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     const city = this.props.navigation.getParam("city", "");
     const startDate = this.props.navigation.getParam("startDate", null);
     const untilDate = this.props.navigation.getParam("untilDate", null);
+    if (startDate !== null && untilDate !== null) {
+      var sumday = this.dayDiff(this.paseDay(untilDate), this.paseDay(startDate));
+    } else {
+      var sumday = 1;
+    }
+    console.log("sumday home", sumday)
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -63,7 +77,12 @@ export default class Home extends Component {
         </View>
         {(this.state.isSchedule) &&
           <View style={{ flex: 5 }}>
-            <Schedule navigate={navigate} city={city} startDate={startDate} untilDate={untilDate}/>
+            <Schedule navigate={navigate}
+              city={city} s
+              startDate={startDate}
+              untilDate={untilDate}
+              sumday={sumday}
+            />
           </View>}
         {(this.state.isDiscover) &&
           <View style={{ flex: 3 }}>

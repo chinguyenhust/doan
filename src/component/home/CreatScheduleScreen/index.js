@@ -65,6 +65,9 @@ export default class CreatScheduleScreen extends Component {
   render() {
     console.log("dataaa  ", this.state.data);
     const { navigate } = this.props.navigation;
+    var sumday = this.props.navigation.getParam("sumday", 1);
+    console.log("sum tao", sumday)
+
     let selectedButton = this.state.data.find(e => e.selected == true);
     selectedButton = selectedButton ? selectedButton.value : this.state.data[0].label;
 
@@ -157,7 +160,7 @@ export default class CreatScheduleScreen extends Component {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.buttonNext} onPress={()=> navigate("Plan")}>
+        <TouchableOpacity style={styles.buttonNext} onPress={()=> navigate("Plan", {"sumday": sumday})}>
           <Text style={{ color: "#fff", fontSize: 18 }}>Tiếp tục</Text>
         </TouchableOpacity>
 

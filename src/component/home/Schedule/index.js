@@ -38,7 +38,9 @@ export default class Schedule extends Component {
     const { city } = {...this.props};
     const { startDate } = {...this.props};
     const { untilDate } = {...this.props};
+    const {sumday} = {...this.props}
     console.log("111111111  ", this.state.data)
+    console.log("sum day lich trinh", sumday)
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Lên lịch trình cho chuyến đi</Text>
@@ -70,7 +72,7 @@ export default class Schedule extends Component {
           </TouchableOpacity>
 
         </View>
-        <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('CreatScheduleScreen', {'data': this.state.data})}>
+        <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('CreatScheduleScreen', {'data': this.state.data, 'sumday': sumday})}>
           <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
         </TouchableOpacity>
 
