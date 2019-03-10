@@ -6,20 +6,40 @@ import IconLocation from 'react-native-vector-icons/Entypo';
 import { SearchableFlatList } from "react-native-searchable-list";
 import { Data } from "../../../api/Data";
 import Demo from "../Demo";
-import PlanDay from "../PlanDay"
+import PlanDay from "../PlanDay";
 
 
 export default class Plan extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: 'welcome'
+            selectedTab: 1
         }
     }
 
     render() {
         const { navigate } = this.props.navigation;
+        var sumday = this.props.navigation.getParam("sumday", 1);
+        // const sumday = 3
+        console.log("sumday plan", sumday)
+        var listDay = [];
 
+        for (let i = 1; i <= sumday; i++) {
+            var title = "Ngay " + i;
+            
+            listDay.push(
+                <TabBarIOS.Item
+                    selected={this.state.selectedTab === i}
+                    title={title}
+                    onPress={() => {
+                        this.setState({
+                            selectedTab: i,
+                        });
+                    }}>
+                    <Demo day={i}/>
+                </TabBarIOS.Item>
+            )
+        }
         return (
             <View style={styles.container}>
                 <View style={{ flexDirection: "column" }}>
@@ -29,9 +49,9 @@ export default class Plan extends Component {
                     </TouchableOpacity>
                     <View style={{ backgroundColor: "#000", height: 1, marginTop: 5 }}></View>
                 </View>
-                
-                <TabBarIOS selectedTab={this.state.selectedTab} style={{alignItems:"flex-start"}}>
-                    <TabBarIOS.Item
+
+                <TabBarIOS selectedTab={this.state.selectedTab} style={{ alignItems: "flex-start" }}>
+                    {/* <TabBarIOS.Item
                         selected={this.state.selectedTab === 'welcome'}
                         title="A"
                         onPress={() => {
@@ -50,9 +70,10 @@ export default class Plan extends Component {
                             });
                         }}>
                         <PlanDay />
-                    </TabBarIOS.Item>
+                    </TabBarIOS.Item> */}
+                    {listDay}
                 </TabBarIOS>
-               
+
 
             </View>
         );
