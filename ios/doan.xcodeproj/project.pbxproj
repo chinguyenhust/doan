@@ -1533,7 +1533,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = doan.doan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hust.doan;
 				PRODUCT_NAME = doan;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1558,7 +1558,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = doan.doan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hust.doan;
 				PRODUCT_NAME = doan;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>2Z5QX94LHA.doan.doan</string>
+	<string>2Z5QX94LHA.com.hust.doan</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>2Z5QX94LHA.doan.doan</string>
+		<string>2Z5QX94LHA.com.hust.doan</string>
 	</array>
 </dict>
 </plist>

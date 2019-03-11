@@ -19,6 +19,10 @@ export default class MyGroup extends Component {
     }
   }
 
+  _handleClickItem = (name) => {
+    this.props.navigation.navigate('DetailGroup')
+  }
+
   componentWillMount() {
     citys.on('value', (snapshot) => {
       let data = snapshot.val();

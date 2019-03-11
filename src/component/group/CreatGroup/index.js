@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, Image } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, Image, ScrollView} from 'react-native';
 import styles from './CreatGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconLocation from 'react-native-vector-icons/Entypo';
 import ImagePicker from 'react-native-image-picker';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
+import MultiSelect from 'react-native-multiple-select';
 
 export default class CreatGroup extends Component {
   constructor(props) {
@@ -13,7 +14,36 @@ export default class CreatGroup extends Component {
       name: "",
       filePath: {},
       isLoad: false,
-      schedule: ""
+      schedule: "",
+      selectedItems: [],
+      items: [{
+        id: '92iijs7yta',
+        name: 'Ondo',
+      }, {
+        id: 'a0s0a8ssbsd',
+        name: 'Ogun',
+      }, {
+        id: '16hbajsabsd',
+        name: 'Calabar',
+      }, {
+        id: 'nahs75a5sg',
+        name: 'Lagos',
+      }, {
+        id: '667atsas',
+        name: 'Maiduguri',
+      }, {
+        id: 'hsyasajs',
+        name: 'Anambra',
+      }, {
+        id: 'djsjudksjd',
+        name: 'Benue',
+      }, {
+        id: 'sdhyaysdj',
+        name: 'Kaduna',
+      }, {
+        id: 'suudydjsjd',
+        name: 'Abuja',
+      }]
     };
   }
   chooseFile = () => {
@@ -48,8 +78,14 @@ export default class CreatGroup extends Component {
       }
     });
   };
+
+  onSelectedItemsChange = selectedItems => {
+    this.setState({ selectedItems });
+  };
+
   render() {
-    console.log("111111   ", this.state.filePath)
+    const { selectedItems, items } = this.state;
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
 
@@ -96,24 +132,38 @@ export default class CreatGroup extends Component {
           />
         </View>
 
+        <ScrollView style={{ marginTop: 20 , height: 250}}>
+          <MultiSelect
+            hideTags
+            items={items}
+            uniqueKey="id"
+            ref={(component) => { this.multiSelect = component }}
+            onSelectedItemsChange={this.onSelectedItemsChange}
+            selectedItems={selectedItems}
+            selectText="Thành viên nhóm"
+            searchInputPlaceholderText="Tìm kiếm thành viên"
+            onChangeInput={(text) => console.log(text)}
+            altFontFamily="Cochin"
+            tagRemoveIconColor="#CCC"
+            tagBorderColor="#CCC"
+            tagTextColor="#CCC"
+            selectedItemTextColor="#CCC"
+            selectedItemIconColor="#CCC"
+            itemTextColor="#000"
+            displayKey="name"
+            searchInputStyle={{ color: '#CCC' ,height:40}}
+            submitButtonColor="#CCC"
+            submitButtonText="Submit"
+            fontSize={16}
+          />
+          <View>
+            {this.multiSelect && this.multiSelect.getSelectedItemsExt(selectedItems)}
+          </View>
+        </ScrollView>
 
-        {/*<Image 
-          source={{ uri: this.state.filePath.path}} 
-          style={{width: 100, height: 100}} />*/}
-        {/* <Image
-          source={{
-            uri: 'data:image/jpeg;base64,' + this.state.filePath.data,
-          }}
-          style={{ width: 100, height: 100 }}
-        />
-        <Image
-          source={{ uri: this.state.filePath.uri }}
-          style={{ width: 250, height: 250 }}
-        />
-        */}
-        {/* <Text style={{ alignItems: 'center' }}>
-          {this.state.filePath.uri}
-        </Text> */}
+        <TouchableOpacity style={styles.button} onPress={()=>navigate("DetailGroup")}>
+          <Text style={{color: "#fff", fontSize: 20}}>Tạo nhóm</Text>
+        </TouchableOpacity>
 
       </View>
     );
