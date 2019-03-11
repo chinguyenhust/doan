@@ -19,7 +19,7 @@ export default class MyGroup extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     citys.on('value', (snapshot) => {
       let data = snapshot.val();
       let items = Object.values(data);
@@ -76,9 +76,9 @@ export default class MyGroup extends Component {
         </ScrollView>
 
 
-        <View style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }}>
+        <TouchableOpacity style={{ zIndex: 1000, bottom: 60, justifyContent: 'flex-end', marginLeft: "80%", position: 'absolute' }} onPress={()=>navigate("CreatGroup")}>
           <IconAdd name="add-circle" size={60} style={{ color: "green" }} />
-        </View>
+        </TouchableOpacity>
       </View>
     );
   }

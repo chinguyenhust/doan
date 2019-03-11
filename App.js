@@ -8,6 +8,7 @@ import Plan from './src/component/plan/Plan';
 
 
 import MyGroup from './src/component/group/MyGroup';
+import CreatGroup from './src/component/group/CreatGroup'
 import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 const MainStack = createStackNavigator(
   {
@@ -28,6 +29,9 @@ const MainStack = createStackNavigator(
     },
     Plan: {
       screen: Plan,
+    },
+    CreatGroup: {
+      screen: CreatGroup,
     }
   
   },{
