@@ -11,9 +11,13 @@
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		nQQzmRcziYa4ERaQR2ezpLraVK8=
 =======
 		OetLCE5bTw7ZNBK//x1cGLTbAMY=
+>>>>>>> develop
+=======
+		7GAUWl1pEN5uSWi7wvckWhdcepI=
 >>>>>>> develop
 		</data>
 		<key>Entypo.ttf</key>
@@ -753,7 +757,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UKSrC3wghEzryzHhq/1r+SCUnDI=
+		7xuvTDtzqGt1eRxX0XxJyvWxYlQ=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -794,9 +798,13 @@
 		<key>PlugIns/doanTests.xctest/doanTests</key>
 		<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		9N4BHxS1hbq31BFIvVRf9LXpCLM=
 =======
 		nZNn1goB/rmOnfWKHBUfw5AkJr4=
+>>>>>>> develop
+=======
+		wYGMuW93SKUDvOtyEnJ8AF7pmN4=
 >>>>>>> develop
 		</data>
 		<key>SimpleLineIcons.ttf</key>
@@ -854,6 +862,7 @@
 			<key>hash</key>
 			<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			nQQzmRcziYa4ERaQR2ezpLraVK8=
 			</data>
 			<key>hash2</key>
@@ -865,6 +874,13 @@
 			<key>hash2</key>
 			<data>
 			39V9Jr6rNWcXsunPCwH5WKkYV51gb2oqoFEzeFKB+mE=
+>>>>>>> develop
+=======
+			7GAUWl1pEN5uSWi7wvckWhdcepI=
+			</data>
+			<key>hash2</key>
+			<data>
+			9rCzaN6xKKpI4m06REjnjMzAHlsEdK9qVS2MUQvYDBA=
 >>>>>>> develop
 			</data>
 		</dict>
@@ -2430,6 +2446,7 @@
 			<key>hash</key>
 			<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			9N4BHxS1hbq31BFIvVRf9LXpCLM=
 			</data>
 			<key>hash2</key>
@@ -2441,6 +2458,13 @@
 			<key>hash2</key>
 			<data>
 			UCcIDJ+7QWv2zOL4gRskCACjPEHvabAk+Td6Wscud6c=
+>>>>>>> develop
+=======
+			wYGMuW93SKUDvOtyEnJ8AF7pmN4=
+			</data>
+			<key>hash2</key>
+			<data>
+			wp41vxppVhoLxPhkKeP+st9G0shnh9hAC+QoEvo+UDg=
 >>>>>>> develop
 			</data>
 		</dict>
