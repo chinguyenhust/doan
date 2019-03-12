@@ -46,7 +46,7 @@ export default class Event extends Component {
           </TouchableOpacity>
         </View>
         <View style={{flex: 11, paddingLeft: 20, paddingRight: 20}}>
-            {(this.state.isEvent) && <ListEvent />}
+            {(this.state.isEvent) && <ListEvent navigate={navigate}/>}
             {(this.state.isSurvey) && <ListSurvey />}
         </View>
 

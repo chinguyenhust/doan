@@ -8,22 +8,54 @@ const styles = StyleSheet.create({
     },
     tapbar: {
         flex: 1,
-        flexDirection:"row",
-        backgroundColor: "green"
+        flexDirection: "column",
     },
-    tapbarItem: {
-        flex:1,
-        alignItems: "center",
+    tap: {
+        flex: 1,
+        flexDirection: "row",
+        paddingLeft: 20,
+        paddingTop: 10,
+        alignSelf: "stretch"
+    },
+    inputQuestion: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginTop: 10,
+        paddingLeft: 15,
+        fontSize: 16,
+        borderRadius: 5,
+    },
+    buttonCreat: {
+        height: 40,
+        backgroundColor: 'green',
+        borderRadius: 7,
+        alignSelf: "stretch",
         justifyContent: "center",
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.3,
+        alignItems: 'center',
+        marginTop: 50
     },
-    lableBefore: {
-        fontSize: 18,
-        color: "#fff"
+    option: {
+        marginTop: 20,
+        height: 40,
+        flexDirection: "row",
     },
-    lableAfter: {
-        fontSize: 18,
-        color: "#000"
+    icon: {
+        width: "15%",
+        justifyContent: "center",
+        alignItems: 'center',
+        color: "gray",
+        paddingLeft: 10,
+        paddingTop: 5
+    },
+    input: {
+        width: "75%",
+        fontSize: 16,
     }
+
 });
 
 export default styles

@@ -14,6 +14,7 @@ import Event from './src/component/group/Event';
 import InfoGroup from './src/component/group/InfoGroup';
 import CreatEvent from './src/component/group/CreatEvent';
 import CreatSurvey from './src/component/group/CreatSurvey';
+import DetailEvent from './src/component/group/DetailEvent';
 
 import { StackNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 const MainStack = createStackNavigator(
@@ -53,6 +54,9 @@ const MainStack = createStackNavigator(
     },
     CreatSurvey: {
       screen: CreatSurvey,
+    },
+    DetailEvent: {
+      screen: DetailEvent,
     }
     
   

@@ -17,10 +17,6 @@ export default class ListEvent extends Component {
     }
   }
 
-//   _handleClickItem = (name) => {
-//     this.props.navigation.navigate('Home', { city: name })
-//   }
-
   componentDidMount() {
     citys.on('value', (snapshot) => {
       let data = snapshot.val();
@@ -31,21 +27,22 @@ export default class ListEvent extends Component {
   }
 
   render() {
-    const { items} = this.state;
+    const { navigate } = { ...this.props };
+    const { items } = this.state;
     return (
       <View style={styles.container}>
         <FlatList
           data={items}
           renderItem={
             ({ item }) => <View style={styles.itemStyle}>
-              <TouchableOpacity style={styles.item} >
+              <TouchableOpacity style={styles.item} onPress={() => navigate("DetailEvent")}>
                 <IconEvent name="event" size={30} style={{ width: "10%", paddingTop: 5, color: "red", }} />
                 <View style={styles.info}>
                   <Text style={styles.textName}>{item.name}</Text>
                   <Text style={styles.textName}>{item.description}</Text>
                 </View>
               </TouchableOpacity>
-             
+
             </View>
           }
         />
