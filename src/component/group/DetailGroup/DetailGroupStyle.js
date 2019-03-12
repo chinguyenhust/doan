@@ -1,17 +1,13 @@
 import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         alignSelf: "stretch",
         paddingTop: 40,
         flexDirection: 'column',
-        backgroundColor: "#fff",
-        paddingBottom: 20,
-        position: "absolute",
-        left: 0,
-        right: 0
     },
     tapbar: {
-        height: 40,
+        flex: 1,
         flexDirection:"row",
         backgroundColor: "green"
     },

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import IconInfo from 'react-native-vector-icons/Ionicons';
 import styles from "./DetailGroupStyle";
-import Map from '../../home/Map'
+import Map from '../../home/Map';
+import Event from '../Event';
+import Chat from '../Chat';
 
 export default class DetailGroup extends Component {
   constructor(props) {
@@ -36,18 +39,19 @@ export default class DetailGroup extends Component {
       isEvent: true
     })
   }
-
+  
   render() {
-
+    const { navigate } = this.props.navigation;
 
     return (
       <View style={styles.container}>
-        <View style={{ flexDirection: "column", }}>
-          <TouchableOpacity style={{ height: 40, flexDirection: "row", marginLeft: 20 }}>
-            <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
-            <Text style={{ fontSize: 24 }}>Tên nhóm</Text>
-          </TouchableOpacity>
-        </View>
+
+        <TouchableOpacity style={{ flex: 1, flexDirection: "row", paddingLeft: 20 , paddingTop: 10,  alignSelf: "stretch"}}>
+          <Icon name="ios-arrow-round-back" size={34} style={{ width: "15%" }} onPress={() => { this.props.navigation.goBack() }} />
+          <Text style={{ fontSize: 24,width:"70%"}}>Tên nhóm</Text>
+          <IconInfo name="ios-information-circle-outline" size={30} style={{ width: "10%"}} onPress={() => { navigate("InfoGroup") }} />
+        </TouchableOpacity>
+
 
         <View style={styles.tapbar}>
           <TouchableOpacity style={styles.tapbarItem} onPress={this.handleClickChat}>
@@ -62,9 +66,13 @@ export default class DetailGroup extends Component {
 
         </View>
 
-        <View style={{width: "100%", height: 600}}>
+        <View style={{ flex: 15 }}>
+        {(this.state.isChat) && <Chat />}
           {(this.state.isMap) && <Map />}
+          {(this.state.isEvent) && <Event navigate={navigate}/>}
         </View>
+
+
       </View>
     );
   }
