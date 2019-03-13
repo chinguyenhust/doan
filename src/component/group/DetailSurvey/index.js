@@ -11,7 +11,20 @@ export default class DetailSurvey extends Component {
     this.state = {
       question: "",
       isAdd: false,
-      options: [],
+      options: [
+        {
+          value: "Có",
+          vote: 0
+        },
+        {
+          value: "Không",
+          vote: 1
+        },
+        {
+          value: "Tuỳ",
+          vote: 2
+        },
+      ],
       optionValue: "",
       checked: false
     }
@@ -19,8 +32,11 @@ export default class DetailSurvey extends Component {
 
   _handleAddOption = () => {
     var { options, optionValue } = this.state;
-    options.push({ value: optionValue, vote: 0 });
-    console.log("options  ", options);
+    if(optionValue === ""){
+      alert("Nhập giá trị của tuỳ chọn")
+    }else{
+      options.push({ value: optionValue, vote: 0 });
+    }
 
     this.setState({
       options: options,
@@ -32,13 +48,12 @@ export default class DetailSurvey extends Component {
   _handleChecked = () => {
     this.setState({
       checked: true,
-      })
+    })
   }
 
   render() {
     const { navigate } = this.props.navigation;
     const { options } = this.state;
-    console.log("length ", options.length)
 
     return (
       <View style={styles.container} >
@@ -51,16 +66,9 @@ export default class DetailSurvey extends Component {
         </View>
         <View style={{ flex: 16, paddingLeft: 20, paddingRight: 20, flexDirection: "column" }}>
 
-          <View style={{ flexDirection: "column", marginTop: 20 }}>
-            <Text style={{ fontSize: 16 }}>Câu hỏi</Text>
-            <TextInput
-              placeholder="Nhập câu hỏi khảo sát"
-              style={styles.inputQuestion}
-              onChangeText={(nameEvent) => {
-                this.setState({ nameEvent });
-              }}
-              value={this.state.nameEvent}
-            />
+          <View style={{ flexDirection: "row", marginTop: 20 }}>
+            <Text style={{ fontSize: 16 }}>Câu hỏi: </Text>
+            <Text style={{ fontSize: 20, color: "red", marginLeft: 20}}> Đi chơi không sdsdfd dfdf ? </Text>
           </View>
 
           {(options.length > 0) &&
@@ -72,9 +80,10 @@ export default class DetailSurvey extends Component {
                   checkedIcon='dot-circle-o'
                   uncheckedIcon='circle-o'
                   checked={this.state.checked}
-                  containerStyle={{borderWidth: 0,backgroundColor: "#fff"}}
-                  // onPress={this._handleChecked}
+                  containerStyle={{ borderWidth: 0, backgroundColor: "#fff", width: "80%", alignItems:"flex-start"}}
+                // onPress={this._handleChecked}
                 />
+                <Text style={{fontSize: 16, marginTop: 10}}>{option.vote} vote</Text>
               </View>
             )}
 
@@ -90,7 +99,7 @@ export default class DetailSurvey extends Component {
           </View>
 
           <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailGroup')}>
-            <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
+            <Text style={{ color: "#fff", fontSize: 20 }}>Gửi lựa chọn</Text>
           </TouchableOpacity>
         </View>
       </View>

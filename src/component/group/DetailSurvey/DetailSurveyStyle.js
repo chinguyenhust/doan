@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     checkbox: {
         height:55,
         alignItems: "flex-start",
-       
+       flexDirection: "row",
     }
 
 });

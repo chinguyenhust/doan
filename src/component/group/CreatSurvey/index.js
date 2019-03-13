@@ -19,9 +19,11 @@ export default class CreatSurvey extends Component {
 
   _handleAddOption = () => {
     var { options, optionValue } = this.state;
-    options.push({ value: optionValue, vote: 0 });
-    console.log("options  ", options);
-
+    if(optionValue === ""){
+      alert("Nhập giá trị của tuỳ chọn")
+    }else{
+      options.push({ value: optionValue, vote: 0 });
+    }
     this.setState({
       options: options,
       isAdd: true,

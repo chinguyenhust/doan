@@ -46,7 +46,7 @@ export default class CreatEvent extends Component {
             date={this.state.date}
             mode="datetime"
             placeholder="Chọn thời gian"
-            format="YYYY-MM-DD hh:mm"
+            format="YYYY-MM-DD hh:mm AM/PM"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
             customStyles={{
