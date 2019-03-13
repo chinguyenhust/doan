@@ -3,6 +3,7 @@ import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput }
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconAdd from 'react-native-vector-icons/Ionicons';
 import styles from './CreatSurveyStyle';
+import { CheckBox } from 'react-native-elements'
 
 export default class CreatSurvey extends Component {
   constructor(props) {
@@ -12,22 +13,32 @@ export default class CreatSurvey extends Component {
       isAdd: false,
       options: [],
       optionValue: "",
+      checked: false
     }
   }
 
   _handleAddOption = () => {
-    var { options, optionValue} = this.state;
-    options.push({value: optionValue, vote: 0});
-    console.log("options" ,options)
+    var { options, optionValue } = this.state;
+    options.push({ value: optionValue, vote: 0 });
+    console.log("options  ", options);
+
     this.setState({
       options: options,
-      isAdd: true
+      isAdd: true,
+      optionValue: ""
     })
+  }
+
+  _handleChecked = () => {
+    this.setState({
+      checked: true,
+      })
   }
 
   render() {
     const { navigate } = this.props.navigation;
-  
+    const { options } = this.state;
+    console.log("length ", options.length)
 
     return (
       <View style={styles.container} >
@@ -51,8 +62,24 @@ export default class CreatSurvey extends Component {
               value={this.state.nameEvent}
             />
           </View>
+
+          {(options.length > 0) &&
+            options.map((option) =>
+              <View style={styles.checkbox}>
+                <CheckBox
+                  center
+                  title={option.value}
+                  checkedIcon='dot-circle-o'
+                  uncheckedIcon='circle-o'
+                  checked={this.state.checked}
+                  containerStyle={{borderWidth: 0,backgroundColor: "#fff"}}
+                  // onPress={this._handleChecked}
+                />
+              </View>
+            )}
+
           <View style={styles.option}>
-            <IconAdd name="ios-add" style={styles.icon} size={30} onPress={()=>this._handleAddOption}/>
+            <IconAdd name="ios-add" style={styles.icon} size={30} onPress={this._handleAddOption} />
             <TextInput placeholder="Thêm option"
               style={styles.input}
               onChangeText={(optionValue) => {
@@ -62,7 +89,7 @@ export default class CreatSurvey extends Component {
             />
           </View>
 
-          <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailEvent')}>
+          <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailGroup')}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
           </TouchableOpacity>
         </View>

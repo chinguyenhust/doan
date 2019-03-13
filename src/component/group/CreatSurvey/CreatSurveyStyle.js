@@ -54,6 +54,11 @@ const styles = StyleSheet.create({
     input: {
         width: "75%",
         fontSize: 16,
+    },
+    checkbox: {
+        height:55,
+        alignItems: "flex-start",
+       
     }
 
 });

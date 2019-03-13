@@ -32,13 +32,14 @@ export default class ListSurvey extends Component {
 
   render() {
     const { items} = this.state;
+    const { navigate } = { ...this.props };
     return (
       <View style={styles.container}>
         <FlatList
           data={items}
           renderItem={
             ({ item }) => <View style={styles.itemStyle}>
-              <TouchableOpacity style={styles.item} >
+              <TouchableOpacity style={styles.item} onPress={() => navigate("DetailSurvey")}>
                 <IconNote name="clipboard-notes" size={30} style={{ width: "10%",  color: "red", }} />
                 <View style={styles.info}>
                   <Text style={styles.textName}>{item.name}</Text>

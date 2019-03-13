@@ -79,7 +79,7 @@ export default class CreatEvent extends Component {
             />
           </View>
 
-          <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailEvent')}>
+          <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailGroup')}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
           </TouchableOpacity>
         </View>
