@@ -46,7 +46,7 @@ export default class CreatEvent extends Component {
             date={this.state.date}
             mode="datetime"
             placeholder="Chọn thời gian"
-            format="YYYY-MM-DD hh:mm"
+            format="YYYY-MM-DD hh:mm AM/PM"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
             customStyles={{
@@ -79,7 +79,7 @@ export default class CreatEvent extends Component {
             />
           </View>
 
-          <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailEvent')}>
+          <TouchableOpacity style={styles.buttonCreat} onPress={() => navigate('DetailGroup')}>
             <Text style={{ color: "#fff", fontSize: 20 }}>Tạo ngay</Text>
           </TouchableOpacity>
         </View>

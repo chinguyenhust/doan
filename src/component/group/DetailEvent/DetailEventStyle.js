@@ -8,22 +8,33 @@ const styles = StyleSheet.create({
     },
     tapbar: {
         flex: 1,
-        flexDirection:"row",
-        backgroundColor: "green"
+        flexDirection:"column",
     },
-    tapbarItem: {
+    tap: {
         flex:1,
-        alignItems: "center",
+        flexDirection: "row", 
+        paddingLeft: 20, 
+        paddingTop: 10, 
+        alignSelf: "stretch" 
+    },
+    input: {
+        height: 40, 
+        paddingLeft: 15,
+        fontSize: 20,
+    },
+    buttonCreat: {
+        height: 40,
+        backgroundColor: 'green',
+        borderRadius: 7,
+        alignSelf: "stretch",
         justifyContent: "center",
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.3, 
+        alignItems: "center",
+        marginTop: 50
     },
-    lableBefore: {
-        fontSize: 18,
-        color: "#fff"
-    },
-    lableAfter: {
-        fontSize: 18,
-        color: "#000"
-    }
+    
 });
 
 export default styles

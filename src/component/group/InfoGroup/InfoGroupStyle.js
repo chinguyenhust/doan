@@ -1,29 +1,46 @@
 import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignSelf: "stretch",
+        paddingLeft: 20,
+        paddingRight: 20,
         paddingTop: 40,
         flexDirection: 'column',
+        backgroundColor: "#fff",
+        paddingBottom: 20,
+        position: "absolute",
+        left: 0,
+        right: 0
     },
-    tapbar: {
-        flex: 1,
-        flexDirection:"row",
-        backgroundColor: "green"
+    inputName: {
+        height: 40, 
+        borderColor: 'gray', 
+        borderWidth: 1, 
+        marginTop: 10,
+        paddingLeft: 15,
+        fontSize: 16,
+        borderRadius: 5,
     },
-    tapbarItem: {
-        flex:1,
-        alignItems: "center",
+    inputSchedule: {
+        height: 100, 
+        borderColor: 'gray', 
+        borderWidth: 1, 
+        marginTop: 10,
+        paddingLeft: 15,
+        fontSize: 16,
+        borderRadius: 5,
+    },
+    button: {
+        bottom: 0, 
+        alignItems: 'center', 
+        backgroundColor:"green", 
+        alignSelf: "stretch",
+        height:40, 
+        width: "100%", 
         justifyContent: "center",
-    },
-    lableBefore: {
-        fontSize: 18,
-        color: "#fff"
-    },
-    lableAfter: {
-        fontSize: 18,
-        color: "#000"
+        borderRadius: 7
     }
+    
 });
 
 export default styles
