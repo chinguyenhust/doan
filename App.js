@@ -16,6 +16,7 @@ import CreatEvent from './src/component/group/CreatEvent';
 import CreatSurvey from './src/component/group/CreatSurvey';
 import DetailEvent from './src/component/group/DetailEvent';
 import DetailSurvey from './src/component/group/DetailSurvey';
+import Chat from './src/component/group/Chat';
 
 import Main from './src/component/login/Main';
 import Loading from './src/component/login/Loading'
@@ -73,15 +74,18 @@ const MainStack = createStackNavigator(
     Login: {
       screen: Login
     },
-    Main: {
-      screen: Main
-    },
     SignUp: {
       screen: SignUp
     },
     Loading: {
       screen: Loading
-    }
+    },
+    Main: {
+      screen: Main
+    },
+    Chat:{
+      screen: Chat,
+    },
 
 
   }, {

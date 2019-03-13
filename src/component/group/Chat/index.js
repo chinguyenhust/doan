@@ -1,28 +1,47 @@
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+// @flow
+import React from 'react';
+import { GiftedChat } from 'react-native-gifted-chat'; // 0.3.0
 
-export default class Demo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      
-    }
+import Fire from '../../../api/Fire';
+
+
+class Chat extends React.Component{
+
+  static navigationOptions = ({ navigation }) => ({
+    title: (navigation.state.params || {}).name || 'Chat!',
+  });
+
+  state = {
+    messages: [],
+  };
+
+  get user() {
+    return {
+      name: {...this.props},
+      _id: Fire.shared.uid,
+    };
   }
+
   render() {
-    const {day} = {...this.props}
-
-
     return (
-      <View style={[styles.scene, { backgroundColor: '#ff4081' }]} >
-      <Text>Ngày {day}</Text>
-      </View>
+      <GiftedChat
+        messages={this.state.messages}
+        onSend={Fire.shared.send}
+        user={this.user}
+      />
     );
+  }
+
+  componentDidMount() {
+    Fire.shared.on(message =>
+      this.setState(previousState => ({
+        messages: GiftedChat.append(previousState.messages, message),
+      }))
+    );
+  }
+  componentWillUnmount() {
+    Fire.shared.off();
   }
 }
 
-const styles = StyleSheet.create({
-  scene: {
-    flex: 1,
-  },
-});
-
+export default Chat;
