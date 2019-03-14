@@ -1,12 +1,12 @@
 import React from 'react'
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity} from 'react-native';
 import firebase from 'react-native-firebase'
 
 export default class Login extends React.Component {
     state = { email: '', password: '', errorMessage: null }
 
     handleLogin = () => {
-        const { email, pasword } = this.state
+        const { email, password } = this.state
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
@@ -17,11 +17,13 @@ export default class Login extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Login</Text>
-                {this.state.errorMessage &&
-                    <Text style={{ color: 'red' }}>
-                        {this.state.errorMessage}
-                    </Text>}
+                <View style={{ justifyContent: 'center', alignItems: 'center',marginBottom: 30 }}>
+                    <Text style={{ fontSize: 28, }}>Đăng nhập</Text>
+                    {this.state.errorMessage &&
+                        <Text style={{ color: 'red' }}>
+                            {this.state.errorMessage}
+                        </Text>}
+                </View>
                 <TextInput
                     style={styles.textInput}
                     autoCapitalize="none"
@@ -37,9 +39,12 @@ export default class Login extends React.Component {
                     onChangeText={password => this.setState({ password })}
                     value={this.state.password}
                 />
-                <Button title="Login" onPress={this.handleLogin} />
+                <TouchableOpacity style={styles.buttonCreat} onPress={this.handleLogin}>
+                    <Text style={{ color: "#fff", fontSize: 20 }}>Đăng Nhập</Text>
+                </TouchableOpacity>
+
                 <Button
-                    title="Don't have an account? Sign Up"
+                    title="Bạn chưa có tài khoản? Đăng ký"
                     onPress={() => this.props.navigation.navigate('SignUp')}
                 />
             </View>
@@ -50,13 +55,30 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        paddingLeft: "10%",
+        paddingRight: "10%"
     },
     textInput: {
         height: 40,
-        width: '90%',
+        width: '100%',
         borderColor: 'gray',
         borderWidth: 1,
-        marginTop: 8
+        marginTop: 20,
+        paddingLeft: 20,
+        fontSize: 16,
+        borderRadius: 8
+    },
+    buttonCreat: {
+        height: 40,
+        backgroundColor: 'green',
+        borderRadius: 7,
+        alignSelf: "stretch",
+        justifyContent: "center",
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.3,
+        alignItems: 'center',
+        marginTop: 30
+
     }
 })

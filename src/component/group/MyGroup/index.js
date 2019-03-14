@@ -16,6 +16,7 @@ export default class MyGroup extends Component {
       searchAttribute: "name",
       ignoreCase: true,
       items: [],
+      user: null,
     }
   }
 
@@ -29,8 +30,14 @@ export default class MyGroup extends Component {
       let items = Object.values(data);
       this.setState({ items: items });
     });
-
   }
+
+//   componentDidMount() {
+//     const { user } = firebase.auth()
+//     this.setState({ 
+//       user:user
+//      })
+// }
 
   render() {
     const { navigate } = this.props.navigation;
