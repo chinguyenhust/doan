@@ -1,29 +1,63 @@
-import React from 'react'
-import { StyleSheet, Platform, Image, Text, View } from 'react-native';
-import firebase from 'react-native-firebase'
+import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
-export default class Main extends React.Component {
-    state = { currentUser: null }
+class Main extends React.Component {
+  static navigationOptions = {
+    title: 'Chatter',
+  };
 
-    componentDidMount() {
-        const { currentUser } = firebase.auth()
-        this.setState({ currentUser })
-    }
-    render() {
-        const { currentUser } = this.state
-        return (
-            <View style={styles.container}>
-                <Text>
-                    Hi {currentUser && currentUser.email}!
-        </Text>
-            </View>
-        )
-    }
+  state = {
+    name: '',
+  };
+
+  onPress = () =>
+    this.props.navigation.navigate('Chat', { name: this.state.name });
+
+  onChangeText = name => this.setState({ name });
+
+  render() {
+    return (
+      <View>
+        <Text style={styles.title}>Enter your name:</Text>
+        <TextInput
+          style={styles.nameInput}
+          placeHolder="John Cena"
+          onChangeText={this.onChangeText}
+          value={this.state.name}
+        />
+        <TouchableOpacity onPress={this.onPress}>
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }
+
+const offset = 24;
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
+  title: {
+    marginTop: offset,
+    marginLeft: offset,
+    fontSize: offset,
+  },
+  nameInput: {
+    height: offset * 2,
+
+    margin: offset,
+    paddingHorizontal: offset,
+    borderColor: '#111111',
+    borderWidth: 1,
+  },
+  buttonText: {
+    marginLeft: offset,
+    fontSize: offset,
+  },
+});
+
+export default Main;

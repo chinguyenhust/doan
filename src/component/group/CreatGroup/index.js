@@ -1,51 +1,67 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, Image, ScrollView} from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput, Image, ScrollView } from 'react-native';
 import styles from './CreatGroupStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
-import IconLocation from 'react-native-vector-icons/Entypo';
 import ImagePicker from 'react-native-image-picker';
 import IconAdd from 'react-native-vector-icons/MaterialIcons';
 import MultiSelect from 'react-native-multiple-select';
+import { Data } from "../../../api/Data";
+
+let users = Data.ref('/users');
 
 export default class CreatGroup extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      filePath: {},
       isLoad: false,
       schedule: "",
       selectedItems: [],
-      items: [{
-        id: '92iijs7yta',
-        name: 'Ondo',
-      }, {
-        id: 'a0s0a8ssbsd',
-        name: 'Ogun',
-      }, {
-        id: '16hbajsabsd',
-        name: 'Calabar',
-      }, {
-        id: 'nahs75a5sg',
-        name: 'Lagos',
-      }, {
-        id: '667atsas',
-        name: 'Maiduguri',
-      }, {
-        id: 'hsyasajs',
-        name: 'Anambra',
-      }, {
-        id: 'djsjudksjd',
-        name: 'Benue',
-      }, {
-        id: 'sdhyaysdj',
-        name: 'Kaduna',
-      }, {
-        id: 'suudydjsjd',
-        name: 'Abuja',
-      }]
+      items: [],
+      created_at: "",
+      avatar: null
     };
   }
+
+  componentDidMount() {
+    users.on('value', (snapshot) => {
+      let data = snapshot.val();
+      let items = Object.values(data);
+      this.setState({ items: items });
+    });
+
+  }
+
+  _handleCreatGroup = () => {
+    var { name, schedule, avatar} = this.state;
+    Data.ref("groups").push(
+      {
+        name: name,
+        schedule: schedule,
+        avatar: avatar
+      }
+    ).then(() => {
+      console.log("Success !");
+    }).catch((error) => {
+      console.log(error);
+    });
+    this.props.navigation.navigate("DetailGroup")
+
+  }
+
+  // componentWillMount() {
+  //   Data.ref("users/001").set(
+  //     {
+  //       name: "chi",
+  //       age: 23
+  //     }
+  //   ).then(() => {
+  //     console.log("Success !");
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   });
+
+  // }
   chooseFile = () => {
     var options = {
       title: 'Select Image',
@@ -68,12 +84,13 @@ export default class CreatGroup extends Component {
         console.log('User tapped custom button: ', response.customButton);
         alert(response.customButton);
       } else {
-        let source = response;
+        // let source = response.uri;
         // You can also display the image using data:
-        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+        let source = { uri: 'data:image/jpeg;base64,' + response.data };
+        console.log("source  ", source);
         this.setState({
-          filePath: source,
-          isLoad: true
+          avatar: source,
+          isLoad: true,
         });
       }
     });
@@ -101,7 +118,7 @@ export default class CreatGroup extends Component {
           {(!this.state.isLoad) ?
             <IconAdd name="add-circle" size={150} style={{ color: "gray", marginTop: 10 }} /> :
             <Image
-              source={{ uri: this.state.filePath.uri }}
+              source={this.state.avatar}
               style={{ width: 130, height: 130, borderRadius: 65, marginTop: 20 }}
             />
           }
@@ -132,7 +149,7 @@ export default class CreatGroup extends Component {
           />
         </View>
 
-        <ScrollView style={{ marginTop: 20 , height: 250}}>
+        <ScrollView style={{ marginTop: 20, height: 250 }}>
           <MultiSelect
             hideTags
             items={items}
@@ -150,8 +167,8 @@ export default class CreatGroup extends Component {
             selectedItemTextColor="#CCC"
             selectedItemIconColor="#CCC"
             itemTextColor="#000"
-            displayKey="name"
-            searchInputStyle={{ color: '#CCC' ,height:40}}
+            displayKey="userName"
+            searchInputStyle={{ color: '#CCC', height: 40 }}
             submitButtonColor="#CCC"
             submitButtonText="Submit"
             fontSize={16}
@@ -161,8 +178,8 @@ export default class CreatGroup extends Component {
           </View>
         </ScrollView>
 
-        <TouchableOpacity style={styles.button} onPress={()=>navigate("DetailGroup")}>
-          <Text style={{color: "#fff", fontSize: 20}}>Tạo nhóm</Text>
+        <TouchableOpacity style={styles.button} onPress={this._handleCreatGroup}>
+          <Text style={{ color: "#fff", fontSize: 20 }}>Tạo nhóm</Text>
         </TouchableOpacity>
 
       </View>
