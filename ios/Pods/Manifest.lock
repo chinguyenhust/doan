@@ -141,6 +141,8 @@ PODS:
     - Google-Maps-iOS-Utils (= 2.1.0)
     - GoogleMaps (= 2.5.0)
     - React
+  - react-native-image-picker (0.28.0):
+    - React
   - react-native-maps (0.23.0):
     - React
   - React/Core (0.58.6):
@@ -190,6 +192,9 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
+  - RNFirebase (5.2.3):
+    - Firebase/Core
+    - React
   - RNVectorIcons (6.3.0):
     - React
   - yoga (0.58.6.React)
@@ -205,6 +210,7 @@ DEPENDENCIES:
   - Google-Maps-iOS-Utils
   - GoogleMaps
   - react-native-google-maps (from `../node_modules/react-native-maps`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -219,6 +225,7 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
+  - RNFirebase (from `../node_modules/react-native-firebase/ios`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
 
@@ -256,8 +263,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   react-native-google-maps:
     :path: "../node_modules/react-native-maps"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
+  RNFirebase:
+    :path: "../node_modules/react-native-firebase/ios"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   yoga:
@@ -289,10 +300,12 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   React: 130b87b2d5e2baac646954282cab87be986d98fc
   react-native-google-maps: 544d2208b09a7e2ec2c6112c8a97c4e7f921f74d
+  react-native-image-picker: e6e06d4315e3c85bad17e4b2002cd29f11d202c8
   react-native-maps: 9469741f77f270c605cafec603ce47327dc5b5f8
+  RNFirebase: fb4f66d93810b53aa4d1cc50c9fb91ee3548abe2
   RNVectorIcons: cb42a5653c046f12ca16c9480c571b52620559e8
   yoga: 32d7ef1081951e9a35a4c72a7be797598b138a48
 
-PODFILE CHECKSUM: 700a007d56c338596a60eaeee2ae9919a2ef42af
+PODFILE CHECKSUM: 5e493bac39ea75afda7cda04a1457745d6b0cc6f
 
 COCOAPODS: 1.6.1
